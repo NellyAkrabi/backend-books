@@ -4,7 +4,7 @@ import Book from "./Book.js";
 const getAllBooks = async (req, res) => {
     try {
         const getAllBooks =  await Book.find();
-        return res.status(200).send(getAllBooks)
+        return res.status(200).json(getAllBooks)
     } catch (err) {
         res.status(500).send(err)
     }

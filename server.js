@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import router from "./router.js";
 import cors from "cors";
-import * as model from "./model.js"
 
 mongoose.set('strictQuery', false)
 
