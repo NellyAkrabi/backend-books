@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import router from "./router.js";
 import cors from "cors";
+import * as model from "./bookModel.js"
+
+
 
 mongoose.set('strictQuery', false)
 
@@ -13,10 +16,16 @@ const PORT = 3005;
 const DB_URL = "mongodb+srv://akrabinelly:5454@cluster0.3mwt3bw.mongodb.net/?retryWrites=true&w=majority"
 
 app.get("/", (req, res) => {
-    res.send('<h1>Hallo</h1>')
+    res.send(model.getApiInstructionsHtml())
+});
+
+app.use("/", router);
+
+
+app.get("/test", (req, res) => {
+    res.json(model.getTest())
 })
 
-app.use("/", router)
 
 const startApp = async () => {
     try {

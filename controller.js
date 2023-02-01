@@ -3,7 +3,7 @@ import Book from "./Book.js";
 
 const getAllBooks = async (req, res) => {
     try {
-        const getAllBooks =  await Book.find();
+        const getAllBooks = await Book.find();
         return res.status(200).json(getAllBooks)
     } catch (err) {
         res.status(500).send(err)
@@ -38,7 +38,10 @@ const deleteBook = async (req, res) => {
     try {
         const bookId = req.params.id;
         if (!bookId) {
-            res.status(400).json({ message: 'Book Not Specified'}) /** testen */            
+            res.status(400).json({ 
+                error: true,
+                message: `Book with id ${bookId} does not exist. Delete failed`
+            }) /** testen */            
         }
         const deleteBook = await Book.findByIdAndDelete(bookId)
         return res.json(deleteBook)
@@ -58,6 +61,8 @@ const updateBook = async (req, res) => {
     } catch (err) {
         res.status(500).send(err)
     }
-}
+};
 
-export { getAllBooks, addNewBook, getOneBook, updateBook, deleteBook}
+
+
+export { getAllBooks, addNewBook, getOneBook, updateBook, deleteBook }

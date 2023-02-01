@@ -1,14 +1,21 @@
+
+
 export const getApiInstructionsHtml = () => {
     return `
-        <stule>
+        <style>
             a, h1 {
                 background-color: #ddd;
                 font-family: courier;
             }
-        </stule>
-        <h1>Learning Backend</h1>
+        </style>
+        <h1>GETBOOK API</h1>
         <ul>
-            <li>< href="books">/books</a> Route to all books </li>
+            <li><a href="books">/books</a> -  array of Books</li>
         </ul>
     `
 }
+
+export const getTest = () => {
+    return `test`
+}
+
